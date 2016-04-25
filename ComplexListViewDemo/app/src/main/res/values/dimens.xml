@@ -1,0 +1,35 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 30像素 -->
+    <dimen name="NORMAL">15sp</dimen>
+    <!-- 36像素 -->
+    <dimen name="BIG">18sp</dimen>
+    <!-- 32像素 -->
+    <dimen name="MIDDLE">16sp</dimen>
+    <!-- 26像素 -->
+    <dimen name="SMALL">13sp</dimen>
+    <!-- 20像素 -->
+    <dimen name="MINI">11sp</dimen>
+
+    <!-- 控件间的间距 -->
+    <dimen name="spacing_huge">30dp</dimen>
+    <dimen name="spacing_large">18dp</dimen>
+    <dimen name="spacing_normal">15dp</dimen>
+    <dimen name="spacing_small">12dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+
+    <!--    左右的margin-->
+    <dimen name="margin_left_right_small">10dp</dimen>
+    <dimen name="margin_left_right_normal">12dp</dimen>
+    <dimen name="margin_left_right_large">15dp</dimen>
+
+    <!--控件的高度 -->
+    <dimen name="button_height_tall">60dp</dimen>
+    <dimen name="button_height_normal">40dp</dimen>
+    <dimen name="button_height_short">32dp</dimen>
+
+    <dimen name="divider_line_size">1dp</dimen>
+</resources>

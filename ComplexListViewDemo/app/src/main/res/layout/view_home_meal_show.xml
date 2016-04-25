@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_meal_show_item"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/spacing_normal">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_meal_show"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/orange4"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_meal_show_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        >
+        <cn.cfanr.complexlistviewdemo.view.CircleImageView
+            android:id="@+id/circle_iv_meal_show_avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/orange7"
+            />
+
+        <TextView
+            android:id="@+id/tv_meal_show_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="精灵神"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/NORMAL"
+            android:layout_toRightOf="@id/circle_iv_meal_show_avatar"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_marginTop="50dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_meal_show_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_left_right_normal"
+            tools:text="34"
+            android:textColor="@color/white_txt"
+            android:drawableLeft="@mipmap/ic_home_comment"
+            android:drawablePadding="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_meal_show_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:layout_toLeftOf="@id/tv_meal_show_comment"
+            tools:text="198"
+            android:textColor="@color/white_txt"
+            android:drawableLeft="@mipmap/ic_home_like"
+            android:drawablePadding="8dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_meal_show_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginLeft="@dimen/margin_left_right_normal"
+        android:layout_marginRight="@dimen/margin_left_right_normal"
+        android:layout_below="@id/rl_meal_show_content"
+        android:textSize="@dimen/BIG"
+        tools:text="今天的蛋糕好好次哦！！！以后周末多做点犒劳犒劳自己！:)"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_meal_show_dots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_meal_show_title"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        />
+
+</RelativeLayout>

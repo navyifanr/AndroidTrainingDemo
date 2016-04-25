@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_ad"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/orange5"
+        />
+
+    <TextView
+        android:id="@+id/tv_ads_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:textSize="@dimen/BIG"
+        tools:text="/抹茶小蛋糕~~/"
+        android:textColor="@color/white_txt"
+        />
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/spacing_normal">
+
+    <ImageView
+        android:id="@+id/iv_menu_img"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:background="@color/orange"
+        />
+    <TextView
+        android:id="@+id/tv_menu_meal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_below="@id/iv_menu_img"
+        tools:text="日式烤生蚝"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/BIG"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_meal_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/NORMAL"
+        tools:text="和风料理"
+        android:layout_below="@id/tv_menu_meal_name"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_menu_meal_intro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_menu_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="98"
+            android:drawableLeft="@mipmap/ic_home_like"
+            android:drawablePadding="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_menu_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            tools:text="34"
+            android:drawableLeft="@mipmap/ic_home_comment"
+            android:drawablePadding="8dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

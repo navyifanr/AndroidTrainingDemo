@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/tv_tag_txt"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingLeft="@dimen/margin_left_right_normal"
+      android:paddingTop="@dimen/spacing_normal"
+      android:paddingBottom="@dimen/spacing_normal"
+      android:drawableLeft="@mipmap/ic_home_type_divider"
+      android:text="专辑推荐"
+      android:textStyle="bold"
+      android:drawablePadding="8dp"
+      android:gravity="center_vertical"
+      android:textSize="@dimen/BIG">
+
+</TextView>

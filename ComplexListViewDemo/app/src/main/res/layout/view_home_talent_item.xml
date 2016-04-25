@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_normal"
+    >
+
+    <cn.cfanr.complexlistviewdemo.view.CircleImageView
+        android:id="@+id/circle_iv_talent_avatar"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@color/orange2"
+        />
+
+    <TextView
+        android:id="@+id/tv_talent_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/circle_iv_talent_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacing_small"
+        tools:text="食神阿坝刚"
+        android:textSize="@dimen/NORMAL"
+        android:textColor="@color/black"
+        />
+</RelativeLayout>

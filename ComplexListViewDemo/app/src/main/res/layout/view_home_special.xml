@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_special_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/spacing_normal"
+    >
+
+    <ImageView
+        android:id="@+id/iv_special_img"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/orange"
+        />
+
+    <TextView
+        android:id="@+id/tv_special_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_special_img"
+        android:layout_marginLeft="@dimen/margin_left_right_normal"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:textSize="@dimen/BIG"
+        tools:text="法式甜点——咖啡奇朵莫斯"
+        />
+    <TextView
+        android:id="@+id/tv_special_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_special_title"
+        android:layout_marginLeft="@dimen/margin_left_right_normal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/margin_left_right_normal"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:lineSpacingExtra="3dp"
+        android:textSize="@dimen/NORMAL"
+        tools:text="当完美甜点遇上完美咖啡。可以吃的咖啡玛奇朵。咖啡控们居家旅行必备。"
+        />
+
+    <TextView
+        android:id="@+id/tv_special_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_left_right_normal"
+        android:layout_below="@id/tv_special_content"
+        tools:text="34"
+        android:drawableLeft="@mipmap/ic_home_comment"
+        android:drawablePadding="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_special_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:layout_toLeftOf="@id/tv_special_comment"
+        android:layout_below="@id/tv_special_content"
+        tools:text="198"
+        android:drawableLeft="@mipmap/ic_home_like"
+        android:drawablePadding="8dp"
+        />
+</RelativeLayout>

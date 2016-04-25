@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/i_menu_one"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        layout="@layout/view_home_menu_item"/>
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="wrap_content"
+        android:background="@color/divider_line_color"/>
+
+    <include
+        android:id="@+id/i_menu_two"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        layout="@layout/view_home_menu_item"/>
+
+</LinearLayout>

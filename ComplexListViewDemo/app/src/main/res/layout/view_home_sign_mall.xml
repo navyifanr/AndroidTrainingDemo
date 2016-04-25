@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/margin_left_right_normal"
+    android:paddingTop="@dimen/spacing_normal"
+    android:paddingBottom="@dimen/spacing_normal"
+    android:paddingRight="@dimen/margin_left_right_normal"
+    android:orientation="horizontal"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_home_sign"
+        android:layout_width="0dip"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:id="@+id/iv_home_sign"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_home_sign"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="签到"
+            android:textSize="@dimen/BIG"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_toRightOf="@id/iv_home_sign"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_home_sign"
+            android:text="领商币，换豪礼"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:textSize="@dimen/SMALL"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="@dimen/divider_line_size"
+        android:layout_height="match_parent"
+        android:background="@color/divider_line_color"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_home_mall"
+        android:layout_width="0dip"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/spacing_tiny"
+        >
+        <ImageView
+            android:id="@+id/iv_home_mall"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_home_mall"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商城"
+            android:textSize="@dimen/BIG"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_toRightOf="@id/iv_home_mall"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_home_mall"
+            android:text="买买买"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:textSize="@dimen/SMALL"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

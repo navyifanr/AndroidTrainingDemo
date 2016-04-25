@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lv_home_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="@android:color/transparent"
+        android:divider="@null"
+        />
+    <RelativeLayout
+        android:id="@+id/rl_home_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_small"
+        android:paddingLeft="@dimen/margin_left_right_normal"
+        android:paddingRight="@dimen/margin_left_right_normal"
+        android:paddingTop="@dimen/spacing_small"
+        android:background="@color/white_txt"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_left_right_normal"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <ImageView
+            android:id="@+id/iv_logo_name"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_left_right_large"
+            android:layout_toRightOf="@id/iv_logo"
+            android:background="@color/orange2"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_home_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_normal"
+            android:layout_toRightOf="@id/iv_logo_name"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:onClick="search"
+            >
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawableLeft="@android:drawable/ic_menu_search"
+                android:gravity="center"
+                android:hint="搜索一下"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>
