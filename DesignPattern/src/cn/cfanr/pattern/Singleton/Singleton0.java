@@ -2,21 +2,21 @@ package cn.cfanr.pattern.Singleton;
 
 public class Singleton0 {
 
-	/* ˽�й��췽������ֹ��ʵ���� */
+	/* 私有构造方法，防止被实例化 */
 	private Singleton0() {
 	}
 
-	/* �˴�ʹ��һ���ڲ�����ά������ */
+	/* 此处使用一个内部类来维护单例 */
 	private static class SingletonFactory {
 		private static Singleton0 instance = new Singleton0();
 	}
 
-	/* ��ȡʵ�� */
+	/* 获取实例 */
 	public static Singleton0 getInstance() {
 		return SingletonFactory.instance;
 	}
 
-	/* ����ö����������л������Ա�֤���������л�ǰ�󱣳�һ�� */
+	/* 如果该对象被用于序列化，可以保证对象在序列化前后保持一致 */
 	public Object readResolve() {
 		return getInstance();
 	}

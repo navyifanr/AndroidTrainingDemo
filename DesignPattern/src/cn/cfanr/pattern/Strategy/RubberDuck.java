@@ -10,10 +10,10 @@ public class RubberDuck extends Duck{
 	}
 	@Override
 	public void display() {
-		System.out.println("��ȫ���ƣ���ͺܺ�");
+		System.out.println("我全身发黄，嘴巴很红");
 	}
-	
+
 	public void quack(){
-		System.out.println("��~��~��~");
+		System.out.println("嘎~嘎~嘎~");
 	}
 }

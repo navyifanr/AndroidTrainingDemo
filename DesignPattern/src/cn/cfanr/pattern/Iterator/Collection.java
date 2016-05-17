@@ -2,8 +2,9 @@ package cn.cfanr.pattern.Iterator;
 
 public interface Collection {
 	public Iterator iterator();
-	//ȡ�ü���Ԫ��
+	//取得集合元素
 	public Object get(int i);
-	//ȡ�ü��ϴ�С
+	//取得集合大小
 	public int size();
 }
+

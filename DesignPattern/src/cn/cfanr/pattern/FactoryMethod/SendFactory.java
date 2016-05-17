@@ -1,7 +1,7 @@
 package cn.cfanr.pattern.FactoryMethod;
 
 /*
- * �������ģʽ
+ * 多个方法模式
  */
 public class SendFactory {
 	public Sender produceMail() {

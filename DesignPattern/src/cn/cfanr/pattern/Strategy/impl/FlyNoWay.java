@@ -7,7 +7,7 @@ public class FlyNoWay implements FlyingStragety{
 
 	@Override
 	public void performFly() {
-		System.out.println("�������");
+		System.out.println("不会飞行");
 	}
 
 }

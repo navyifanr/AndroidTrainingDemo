@@ -11,7 +11,7 @@ public class RedheadDuck extends Duck{
 
 	@Override
 	public void display() {
-		System.out.println("�ҵ�ͷ�Ǻ�ɫ��");
+		System.out.println("我的头是红色的");
 	}
 	
 }

@@ -1,12 +1,13 @@
 package cn.cfanr.pattern.Observer;
 
 public interface Subject {
-	//���ӹ۲���
+	//增加观察者
 	public void add(Observer observer);
-	//ɾ���۲���
+	//删除观察者
 	public void del(Observer observer);
-	//֪ͨ���еĹ۲���
+	//通知所有的观察者
 	public void notifyObservers();
-	//����Ĳ���
+	//自身的操作
 	public void operation();
 }
+

@@ -1,8 +1,8 @@
 package cn.cfanr.pattern.Adapter;
 /*
- * ��������ӿ�
+ * 三相插座接口
  */
 interface ThreePlugIf {
-	//ʹ�������������
+	///使用三相电流供电
 	public void powerWithThree();
 }

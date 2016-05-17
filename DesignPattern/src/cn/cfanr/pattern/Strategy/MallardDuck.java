@@ -11,7 +11,7 @@ public class MallardDuck extends Duck{
 	}
 	@Override
 	public void display() {
-		System.out.println("�ҵĲ�������ɫ��");
+		System.out.println("我的脖子是绿色的");
 	}
 	
 }

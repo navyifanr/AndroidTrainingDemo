@@ -28,18 +28,18 @@ public class TreeNode {
 	public void setParent(TreeNode parent) {
 		this.parent = parent;
 	}
-	
-	//��Ӻ��ӽڵ�
+
+	//添加孩子节点
 	public void add(TreeNode node){
 		children.add(node);
 	}
-	
-	//ɾ�����ӽڵ�
+
+	//删除孩子节点
 	public void remove(TreeNode node){
 		children.remove(node);
 	}
-	
-	//ȡ�ú��ӽڵ�
+
+	//取得孩子节点
 	public Enumeration<TreeNode> getChildren(){
 		return children.elements();
 	}

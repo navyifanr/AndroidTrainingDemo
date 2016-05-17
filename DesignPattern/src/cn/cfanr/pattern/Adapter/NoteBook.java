@@ -6,7 +6,7 @@ public class NoteBook {
 	public NoteBook(ThreePlugIf plug){
 		this.plug=plug;
 	}
-	//ʹ�ò������
+	//使用插座充电
 	public void charge(){
 		plug.powerWithThree();
 	}

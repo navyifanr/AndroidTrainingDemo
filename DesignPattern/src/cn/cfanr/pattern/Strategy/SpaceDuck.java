@@ -10,11 +10,11 @@ public class SpaceDuck extends Duck{
 	}
 	@Override
 	public void display() {
-		System.out.println("��ͷ��ͷ��");
+		System.out.println("我头戴头盔");
 	}
-	
+
 	public void quack(){
-		System.out.println("ͨ�����ߵ�ͨѶ");
+		System.out.println("通过无线电通讯");
 	}
 
 }

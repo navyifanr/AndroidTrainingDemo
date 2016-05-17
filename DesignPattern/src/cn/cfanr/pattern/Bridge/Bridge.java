@@ -1,7 +1,7 @@
 package cn.cfanr.pattern.Bridge;
 
 /*
- * ����һ���ţ�����Sourceable��һ��ʵ��
+ * 定义一个桥，持有Sourceable的一个实例
  */
 public abstract class Bridge {
 	private Sourceable source;

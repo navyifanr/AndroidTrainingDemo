@@ -1,6 +1,6 @@
 package cn.cfanr.pattern.Strategy;
 /*
- *���Խӿڣ�ʵ��Ѽ�ӵķ�����Ϊ
+ *策略接口，实现鸭子的飞行行为
  */
 public interface FlyingStragety {
 	void performFly();

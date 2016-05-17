@@ -1,14 +1,14 @@
 package cn.cfanr.pattern.Iterator;
 
 public interface Iterator {
-	//ǰ��
+	//前移
 	public Object previous();
-	
-	//����
+
+	//后移
 	public Object next();
-	
+
 	public boolean hasNext();
-	
-	//ȡ�õ�һ��Ԫ��
+
+	//取得第一个元素
 	public Object first();
 }
