@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.Strategy2.ICalculator" x="94" y="42">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.Strategy2.Plus" x="382" y="176">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Strategy2.ICalculator"/>
+        <Extension destinationClassName="cn.stu.pattern.Strategy2.AbstractCalculator"/>
+        <Communication destinationClassName="cn.stu.pattern.Strategy2.AbstractCalculator"/>
+    </Class>
+    <Class name="cn.stu.pattern.Strategy2.AbstractCalculator" x="310" y="42">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.Strategy2.Minus" x="16" y="177">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Strategy2.ICalculator"/>
+        <Extension destinationClassName="cn.stu.pattern.Strategy2.AbstractCalculator"/>
+        <Communication destinationClassName="cn.stu.pattern.Strategy2.AbstractCalculator"/>
+    </Class>
+    <Class name="cn.stu.pattern.Strategy2.Multiply" x="200" y="187">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Strategy2.ICalculator"/>
+        <Extension destinationClassName="cn.stu.pattern.Strategy2.AbstractCalculator"/>
+        <Communication destinationClassName="cn.stu.pattern.Strategy2.AbstractCalculator"/>
+    </Class>
+    <Note x="539" y="48">//统一接口&#xd;
+public interface ICalculator {&#xd;
+	public int calculate(String exp);&#xd;
+}&#xd;
+//辅助的抽象类&#xd;
+public abstract class AbstractCalculator {&#xd;
+	public int[] split(String exp, String opt) {&#xd;
+		String array[] = exp.split(opt);&#xd;
+		int arrayInt[] = new int[2];&#xd;
+		arrayInt[0] = Integer.parseInt(array[0]);&#xd;
+		arrayInt[1] = Integer.parseInt(array[1]);&#xd;
+		return arrayInt;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+</Note>
+    <Note x="33" y="255">public class Minus extends AbstractCalculator implements ICalculator {&#xd;
+&#xd;
+	@Override&#xd;
+	public int calculate(String exp) {&#xd;
+		int arrayInt[] =split(exp,"-");&#xd;
+		return arrayInt[0]-arrayInt[1];&#xd;
+	}&#xd;
+&#xd;
+}</Note>
+</ClassDiagram>

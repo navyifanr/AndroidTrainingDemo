@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.Observer.AbstractSubject" x="-1" y="163">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Observer.Subject"/>
+        <Association
+            destinationClassName="cn.stu.pattern.Observer.Observer"
+            endpointName="vector" kind="Simple"/>
+        <Communication destinationClassName="cn.stu.pattern.Observer.Observer"/>
+    </Class>
+    <Class name="cn.stu.pattern.Observer.Observer1" x="216" y="195">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Observer.Observer"/>
+    </Class>
+    <Class name="cn.stu.pattern.Observer.Observer2" x="343" y="192">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Observer.Observer"/>
+    </Class>
+    <Class name="cn.stu.pattern.Observer.Observer" x="218" y="29">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.Observer.MySubject" x="0" y="302">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Observer.AbstractSubject"/>
+        <Communication destinationClassName="cn.stu.pattern.Observer.AbstractSubject"/>
+    </Class>
+    <Class name="cn.stu.pattern.Observer.Subject" x="10" y="17">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Note x="492" y="-3">public interface Subject {&#xd;
+	//增加观察者&#xd;
+	public void add(Observer observer);&#xd;
+	//删除观察者&#xd;
+	public void del(Observer observer);&#xd;
+	//通知所有的观察者&#xd;
+	public void notifyObservers();&#xd;
+	//自身的操作&#xd;
+	public void operation();&#xd;
+}&#xd;
+public abstract class AbstractSubject implements Subject {&#xd;
+	private Vector&lt;Observer&gt; vector = new Vector&lt;Observer&gt;();&#xd;
+	@Override&#xd;
+	public void add(Observer observer) {&#xd;
+		vector.add(observer);&#xd;
+	}&#xd;
+	@Override&#xd;
+	public void del(Observer observer) {&#xd;
+		vector.remove(observer);&#xd;
+	}&#xd;
+	@Override&#xd;
+	public void notifyObservers() {&#xd;
+		Enumeration&lt;Observer&gt; enumo = vector.elements();&#xd;
+		while(enumo.hasMoreElements()){&#xd;
+			enumo.nextElement().update();&#xd;
+		}&#xd;
+	}&#xd;
+}&#xd;
+public class MySubject extends AbstractSubject {&#xd;
+&#xd;
+	@Override&#xd;
+	public void operation() {&#xd;
+		System.out.println("update self");&#xd;
+		notifyObservers();&#xd;
+	}&#xd;
+&#xd;
+}</Note>
+    <Note x="115" y="268">public interface Observer {&#xd;
+	public void update();&#xd;
+}&#xd;
+&#xd;
+public class Observer1 implements Observer {&#xd;
+&#xd;
+	@Override&#xd;
+	public void update() {&#xd;
+		System.out.println("observer1 has received");&#xd;
+	}&#xd;
+}&#xd;
+public class Observer2 implements Observer {&#xd;
+&#xd;
+	@Override&#xd;
+	public void update() {&#xd;
+		System.out.println("observer2 has received...");&#xd;
+	}&#xd;
+&#xd;
+}&#xd;
+</Note>
+</ClassDiagram>

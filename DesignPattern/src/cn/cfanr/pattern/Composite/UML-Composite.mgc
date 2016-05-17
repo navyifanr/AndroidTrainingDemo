@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Composite.TreeNode" x="370" y="167">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Composite.TreeNode"
+            endpointName="parent" kind="Simple"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Composite.TreeNode"
+            endpointName="children" kind="Simple"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Composite.Tree" x="200" y="167">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Composite.TreeNode"
+            endpointName="root" kind="Simple"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Composite.TreeNode"/>
+    </Class>
+</ClassDiagram>

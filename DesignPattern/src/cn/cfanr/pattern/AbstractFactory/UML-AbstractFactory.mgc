@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.AbstractFactory.MailSender" x="54" y="183">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.AbstractFactory.Sender"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.AbstractFactory.SmsSender" x="217" y="190">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.AbstractFactory.Sender"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.AbstractFactory.Sender" x="143" y="48">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.AbstractFactory.Provider" x="121" y="279">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.AbstractFactory.SendSmsFactory" x="246" y="394">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.AbstractFactory.Provider"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.AbstractFactory.SendMailFactory" x="5" y="391">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.AbstractFactory.Provider"/>
+    </Class>
+    <Note x="420" y="55">interface Sender {&#xd;
+	public void send();&#xd;
+}&#xd;
+public interface Provider {&#xd;
+	public Sender produce();&#xd;
+}&#xd;
+public class SendMailFactory implements Provider{&#xd;
+	@Override&#xd;
+	public Sender produce() {&#xd;
+		return new MailSender();&#xd;
+	}&#xd;
+}&#xd;
+public class SmsSender implements Sender {&#xd;
+	@Override&#xd;
+	public void send() {&#xd;
+		System.out.println("this is sms sender.");&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+Provider provider=new SendMailFactory();&#xd;
+Sender sender=provider.produce();&#xd;
+sender.send();</Note>
+</ClassDiagram>

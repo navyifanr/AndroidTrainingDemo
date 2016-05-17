@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.Adapter.NoteBook" x="13" y="101">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.stu.pattern.Adapter.ThreePlugIf"
+            endpointName="plug" kind="Simple"/>
+        <Communication destinationClassName="cn.stu.pattern.Adapter.ThreePlugIf"/>
+    </Class>
+    <Class name="cn.stu.pattern.Adapter.TwoPlugAdapter" x="290" y="190">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Adapter.ThreePlugIf"/>
+        <Association
+            destinationClassName="cn.stu.pattern.Adapter.GBTwoPlug"
+            endpointName="plug" kind="Simple"/>
+        <Communication destinationClassName="cn.stu.pattern.Adapter.GBTwoPlug"/>
+    </Class>
+    <Class name="cn.stu.pattern.Adapter.TwoPlugAdapterExtends" x="108" y="191">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Adapter.ThreePlugIf"/>
+        <Extension destinationClassName="cn.stu.pattern.Adapter.GBTwoPlug"/>
+        <Communication destinationClassName="cn.stu.pattern.Adapter.GBTwoPlug"/>
+    </Class>
+    <Class name="cn.stu.pattern.Adapter.ThreePlugIf" x="111" y="-4">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.Adapter.GBTwoPlug" x="292" y="9">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Note x="456" y="0">//三相插座接口, 使用三相电流供电&#xd;
+interface ThreePlugIf {&#xd;
+	public void powerWithThree();&#xd;
+}&#xd;
+public class GBTwoPlug {&#xd;
+	//使用二相电流供电&#xd;
+	public void powerWithTwo(){&#xd;
+		System.out.println("使用二相电流供电");&#xd;
+	}&#xd;
+}&#xd;
+//1.组合方式，二相转三相的插座适配器&#xd;
+public class TwoPlugAdapter implements ThreePlugIf {&#xd;
+	private GBTwoPlug plug;&#xd;
+	public TwoPlugAdapter(GBTwoPlug plug){&#xd;
+		this.plug=plug;&#xd;
+	}&#xd;
+	@Override&#xd;
+	public void powerWithThree() {&#xd;
+		System.out.println("通过转化");&#xd;
+		plug.powerWithTwo();&#xd;
+	}&#xd;
+}&#xd;
+//2.采用继承方式的插座的适配器&#xd;
+public class TwoPlugAdapterExtends extends GBTwoPlug implements ThreePlugIf {&#xd;
+	@Override&#xd;
+	public void powerWithThree() {&#xd;
+		System.out.println("借助继承适配器");&#xd;
+		this.powerWithTwo();&#xd;
+	}&#xd;
+}</Note>
+    <Note x="33" y="255">public class NoteBook {&#xd;
+	private ThreePlugIf plug;&#xd;
+	public NoteBook(ThreePlugIf plug){&#xd;
+		this.plug=plug;&#xd;
+	}&#xd;
+	//使用插座充电&#xd;
+	public void charge(){&#xd;
+		plug.powerWithThree();&#xd;
+	}&#xd;
+	public static void main(String[] args){&#xd;
+		GBTwoPlug two=new GBTwoPlug();&#xd;
+		ThreePlugIf three=new TwoPlugAdapter(two);&#xd;
+		NoteBook nb=new NoteBook(three);&#xd;
+		nb.charge();&#xd;
+		&#xd;
+		three=new TwoPlugAdapterExtends();&#xd;
+		nb=new NoteBook(three);&#xd;
+		nb.charge();&#xd;
+	}&#xd;
+}</Note>
+</ClassDiagram>

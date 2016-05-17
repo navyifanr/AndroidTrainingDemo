@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.FactoryMethod.SendFactory" x="131" y="352">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.FactoryMethod.Sender" x="203" y="53">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.FactoryMethod.SmsSender" x="344" y="220">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.FactoryMethod.Sender"/>
+    </Class>
+    <Class name="cn.stu.pattern.FactoryMethod.MailSender" x="60" y="218">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.FactoryMethod.Sender"/>
+    </Class>
+    <Note x="447" y="37">//1.多个方法模式&#xd;
+public class SendFactory {&#xd;
+	public Sender produceMail() {&#xd;
+		return new MailSender();&#xd;
+	}&#xd;
+&#xd;
+	public Sender produceSms() {&#xd;
+		return new SmsSender();&#xd;
+	}&#xd;
+}&#xd;
+//2.静态方法模式（多数采用）&#xd;
+public class SendFactory {&#xd;
+	public static Sender prodecuMail(){&#xd;
+		return new MailSender();&#xd;
+	}&#xd;
+	&#xd;
+	public static Sender produceSms(){&#xd;
+		return new SmsSender();&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+Sender sender=SendFactory.produceSms();&#xd;
+sender.send();&#xd;
+</Note>
+</ClassDiagram>

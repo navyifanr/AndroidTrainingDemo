@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Facade.CPU" x="292" y="37">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Facade.Memory" x="54" y="38">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Facade.Disk" x="174" y="39">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Facade.Computer" x="145" y="155">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="cn.cfanr.pattern.Facade.Disk"
+            endpointName="disk" kind="Simple"/>
+        <Association destinationClassName="cn.cfanr.pattern.Facade.CPU"
+            endpointName="cpu" kind="Simple"/>
+        <Association destinationClassName="cn.cfanr.pattern.Facade.Memory"
+            endpointName="memory" kind="Simple"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Facade.CPU"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Facade.Memory"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Facade.Disk"/>
+    </Class>
+    <Note x="22" y="269">public class CPU {&#xd;
+	public void startup(){&#xd;
+		System.out.println("cpu startup...");&#xd;
+	}&#xd;
+	public void shutdown(){&#xd;
+		System.out.println("cpu shutdown...");&#xd;
+	}&#xd;
+}&#xd;
+</Note>
+    <Note x="446" y="25">public class Computer {&#xd;
+	private CPU cpu;&#xd;
+	private Memory memory;&#xd;
+	private Disk disk;&#xd;
+&#xd;
+	public Computer() {&#xd;
+		cpu = new CPU();&#xd;
+		memory = new Memory();&#xd;
+		disk = new Disk();&#xd;
+	}&#xd;
+	public void startup() {&#xd;
+		System.out.println("start the computer");&#xd;
+		cpu.startup();&#xd;
+		memory.startup();&#xd;
+		disk.startup();&#xd;
+		System.out.println("start computer finished");&#xd;
+	}&#xd;
+	public void shutdown() {&#xd;
+		System.out.println("begin to close the computer");&#xd;
+		cpu.shutdown();&#xd;
+		memory.shutdown();&#xd;
+		disk.shutdown();&#xd;
+		System.out.println("computer closed...");&#xd;
+	}&#xd;
+}</Note>
+</ClassDiagram>

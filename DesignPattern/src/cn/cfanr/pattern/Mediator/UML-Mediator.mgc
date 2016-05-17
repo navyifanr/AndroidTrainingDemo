@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Mediator.Mediator" x="229" y="72">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Mediator.User1" x="319" y="377">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Mediator.User"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Mediator.User2" x="502" y="376">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Mediator.User"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Mediator.MyMediator" x="100" y="239">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Mediator.Mediator"/>
+        <Association destinationClassName="cn.cfanr.pattern.Mediator.User"
+            endpointName="user2" kind="Simple"/>
+        <Association destinationClassName="cn.cfanr.pattern.Mediator.User"
+            endpointName="user1" kind="Simple"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Mediator.User"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Mediator.User" x="443" y="238">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Mediator.Mediator"
+            endpointName="mediator" kind="Simple"/>
+    </Class>
+</ClassDiagram>

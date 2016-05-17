@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Builder.MailSender" x="19" y="202">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Builder.Sender"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Builder.SmsSender" x="151" y="205">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Builder.Sender"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Builder.Builder" x="286" y="193">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Builder.Sender"
+            endpointName="list" kind="Simple"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Builder.Sender" x="130" y="47">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Note x="487" y="44">public class Builder {&#xd;
+	private List&lt;Sender&gt; list=new ArrayList&lt;Sender&gt;();&#xd;
+	&#xd;
+	public void produceMailSender(int count){&#xd;
+		for(int i=0;i&lt;count;i++){&#xd;
+			list.add(new MailSender());&#xd;
+		}&#xd;
+	}&#xd;
+	&#xd;
+	public void produceSmsSender(int count){&#xd;
+		for(int i=0;i&lt;count;i++){&#xd;
+			list.add(new SmsSender());&#xd;
+		}&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+Builder builder=new Builder();&#xd;
+builder.produceMailSender(10);</Note>
+</ClassDiagram>

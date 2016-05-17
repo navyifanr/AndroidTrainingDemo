@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Visitor.Subject" x="302" y="6">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Visitor.MyVisitor" x="473" y="113">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Visitor.Visitor"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Visitor.Visitor" x="451" y="4">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Visitor.MySubject" x="285" y="121">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Visitor.Subject"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Visitor.Visitor"/>
+    </Class>
+    <Note x="2" y="103">public interface Subject {&#xd;
+	public void accept(Visitor visitor);&#xd;
+	public String getSubject();&#xd;
+}&#xd;
+&#xd;
+public class MySubject implements Subject {&#xd;
+&#xd;
+	@Override&#xd;
+	public void accept(Visitor visitor) {&#xd;
+		visitor.visit(this);&#xd;
+	}&#xd;
+	@Override&#xd;
+	public String getSubject() {&#xd;
+		return "love";&#xd;
+	}&#xd;
+}</Note>
+    <Note x="441" y="173">public interface Visitor {&#xd;
+	public void visit(Subject sub);&#xd;
+}&#xd;
+&#xd;
+public class MyVisitor implements Visitor{&#xd;
+&#xd;
+	@Override&#xd;
+	public void visit(Subject sub) {&#xd;
+		System.out.println("visit the subject:"+sub.getSubject());&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+Visitor visitor=new MyVisitor();&#xd;
+Subject sub=new MySubject();&#xd;
+sub.accept(visitor);</Note>
+</ClassDiagram>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.TemplateMethod.RefreshBeverage" x="15" y="47">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.TemplateMethod.Tea" x="14" y="179">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.TemplateMethod.RefreshBeverage"/>
+    </Class>
+    <Class name="cn.stu.pattern.TemplateMethod.Coffee" x="164" y="180">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.TemplateMethod.RefreshBeverage"/>
+    </Class>
+    <Note x="550" y="6">public abstract class RefreshBeverage {&#xd;
+	//final防止子类重写该方法&#xd;
+	/*&#xd;
+	 * 制备饮料的模板方法&#xd;
+	 * 封装了所有子类共同遵循的算法框架&#xd;
+	 */&#xd;
+	public final void prepareBeverageTemplate(){&#xd;
+		//步骤一 将水煮沸&#xd;
+		boilWater();&#xd;
+		//步骤二 炮制饮料&#xd;
+		brew();&#xd;
+		//步骤三 将饮料倒入杯中&#xd;
+		pourInCup();&#xd;
+		if(isCustomerWantsCondiments()){&#xd;
+			//步骤四 加入调味料&#xd;
+			addCondiments();&#xd;
+		}&#xd;
+	}&#xd;
+	/*&#xd;
+	 * Hook, 钩子函数，提供一个默认或空的实现&#xd;
+	 * 具体的子类可以自行决定是否挂钩以及如何挂钩&#xd;
+	 * 询问用户是否加入调料&#xd;
+	 */&#xd;
+	protected boolean isCustomerWantsCondiments() {&#xd;
+		return true;&#xd;
+	}&#xd;
+	/*&#xd;
+	 * (通用)基本方法，将水煮沸&#xd;
+	 */&#xd;
+	private void boilWater() {&#xd;
+		System.out.println("将水煮沸");&#xd;
+	}&#xd;
+	/*&#xd;
+	 * 基本方法，将饮料倒入杯中&#xd;
+	 */&#xd;
+	private void pourInCup() {&#xd;
+		System.out.println("将饮料倒入杯中");&#xd;
+	}&#xd;
+	//使用protected（或默认）, 并抽象，延迟到子类&#xd;
+	protected abstract void brew();&#xd;
+	&#xd;
+	protected abstract void addCondiments();&#xd;
+	&#xd;
+}&#xd;
+</Note>
+    <Note x="84" y="248">public class Tea extends RefreshBeverage {&#xd;
+&#xd;
+	@Override&#xd;
+	protected void brew() {&#xd;
+		System.out.println("用80度的热水浸泡茶叶5分钟");&#xd;
+	}&#xd;
+&#xd;
+	@Override&#xd;
+	protected void addCondiments() {&#xd;
+		System.out.println("加入柠檬");&#xd;
+	}&#xd;
+	/*&#xd;
+	 *子类通过覆盖的形式选择挂载钩子函数&#xd;
+	 */&#xd;
+	@Override&#xd;
+	protected boolean isCustomerWantsCondiments() {&#xd;
+		return false;&#xd;
+	}&#xd;
+}&#xd;
+</Note>
+    <Note x="227" y="0">public class Coffee extends RefreshBeverage {&#xd;
+&#xd;
+	@Override&#xd;
+	protected void brew() {&#xd;
+		System.out.println("用沸水冲泡咖啡");&#xd;
+	}&#xd;
+&#xd;
+	@Override&#xd;
+	protected void addCondiments() {&#xd;
+		System.out.println("加入糖和牛奶");&#xd;
+	}&#xd;
+&#xd;
+}</Note>
+</ClassDiagram>

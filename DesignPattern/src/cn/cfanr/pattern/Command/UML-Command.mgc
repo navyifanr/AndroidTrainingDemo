@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Command.MyCommand" x="374" y="198">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Command.Command"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Command.Receiver"
+            endpointName="receiver" kind="Simple"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Command.Receiver"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Command.Invoker" x="125" y="199">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.Command.Command"
+            endpointName="command" kind="Simple"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Command.Command"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Command.Receiver" x="441" y="83">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Command.Test" x="26" y="204">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Command.Invoker"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Command.Command" x="289" y="81">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Note x="88" y="13">public interface Command {&#xd;
+	public void exe();&#xd;
+}</Note>
+    <Note x="107" y="268">public class Invoker {&#xd;
+	private Command command;&#xd;
+	&#xd;
+	public Invoker(Command command){&#xd;
+		this.command=command;&#xd;
+	}&#xd;
+	&#xd;
+	public void action(){&#xd;
+		command.exe();&#xd;
+	}&#xd;
+}</Note>
+    <Note x="522" y="197">public class MyCommand implements Command {&#xd;
+&#xd;
+	private Receiver receiver;&#xd;
+	public MyCommand(Receiver receiver){&#xd;
+		this.receiver=receiver;&#xd;
+	}&#xd;
+	@Override&#xd;
+	public void exe() {&#xd;
+		receiver.action();&#xd;
+	}&#xd;
+&#xd;
+}</Note>
+    <Note x="551" y="40">public class Receiver {&#xd;
+	public void action(){&#xd;
+		System.out.println("command receiver!");&#xd;
+	}&#xd;
+}</Note>
+</ClassDiagram>

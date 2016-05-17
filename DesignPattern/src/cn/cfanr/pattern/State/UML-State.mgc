@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.State.State" x="201" y="9">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.State.Context" x="494" y="26">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="cn.stu.pattern.State.State"
+            endpointName="state" kind="Simple"/>
+        <Communication destinationClassName="cn.stu.pattern.State.State"/>
+    </Class>
+    <Note x="11" y="97">public class State {&#xd;
+	private String value;&#xd;
+	&#xd;
+	public String getValue(){&#xd;
+		return value;&#xd;
+	}&#xd;
+	public void setValue(String value){&#xd;
+		this.value=value;&#xd;
+	}&#xd;
+	public void method1(){&#xd;
+		System.out.println("execute the first opt!");&#xd;
+	}&#xd;
+	public void method2(){&#xd;
+		System.out.println("execute the second opt!");&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+//State类是个状态类，Context类可以实现切换&#xd;
+public class Test {&#xd;
+	public static void main(String[] args) {&#xd;
+		State state=new State();&#xd;
+		Context context=new Context(state);&#xd;
+		&#xd;
+		//设置第一种状态&#xd;
+		state.setValue("state1");&#xd;
+		context.method();&#xd;
+		&#xd;
+		//设置第二种状态&#xd;
+		state.setValue("state2");&#xd;
+		context.method();&#xd;
+	}&#xd;
+}&#xd;
+</Note>
+    <Note x="432" y="98">public class Context {&#xd;
+	private State state;&#xd;
+	&#xd;
+	public Context(State state) {&#xd;
+		this.state=state;&#xd;
+	}&#xd;
+	&#xd;
+	public State getState(){&#xd;
+		return state;&#xd;
+	}&#xd;
+	&#xd;
+	public void setState(State state){&#xd;
+		this.state=state;&#xd;
+	}&#xd;
+	&#xd;
+	public void method(){&#xd;
+		if(state.getValue().equals("state1")){&#xd;
+			state.method1();&#xd;
+		}else if(state.getValue().equals("state2")){&#xd;
+			state.method2();&#xd;
+		}&#xd;
+	}&#xd;
+}&#xd;
+</Note>
+</ClassDiagram>

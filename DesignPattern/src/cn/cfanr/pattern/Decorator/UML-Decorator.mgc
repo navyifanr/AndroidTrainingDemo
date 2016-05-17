@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.Decorator.Source" x="70" y="250">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Decorator.Sourceable"/>
+    </Class>
+    <Class name="cn.stu.pattern.Decorator.Sourceable" x="66" y="51">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.Decorator.Decorator" x="285" y="183">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Decorator.Sourceable"/>
+        <Association
+            destinationClassName="cn.stu.pattern.Decorator.Sourceable"
+            endpointName="source" kind="Simple"/>
+        <Communication destinationClassName="cn.stu.pattern.Decorator.Sourceable"/>
+    </Class>
+    <Note x="437" y="10">public interface Sourceable {&#xd;
+	public void method();&#xd;
+}&#xd;
+public class Source implements Sourceable{&#xd;
+	@Override&#xd;
+	public void method() {&#xd;
+		System.out.println("this is an original method");&#xd;
+	}&#xd;
+}&#xd;
+//×°ÊÎÕß&#xd;
+public class Decorator implements Sourceable {&#xd;
+	private Sourceable source;&#xd;
+	&#xd;
+	public Decorator(Sourceable source){&#xd;
+		super();&#xd;
+		this.source=source;&#xd;
+	}&#xd;
+	@Override&#xd;
+	public void method() {&#xd;
+		System.out.println("before decorator...");&#xd;
+		source.method();&#xd;
+		System.out.println("after decorator...");&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+Sourceable source=new Source();&#xd;
+Sourceable obj=new Decorator(source);&#xd;
+obj.method();</Note>
+</ClassDiagram>

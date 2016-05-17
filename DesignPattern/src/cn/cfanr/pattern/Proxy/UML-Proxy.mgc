@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.Proxy.Source" x="45" y="291">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Proxy.Sourceable"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Proxy.Sourceable" x="213" y="94">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.Proxy.Proxy" x="383" y="292">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.Proxy.Sourceable"/>
+        <Association destinationClassName="cn.cfanr.pattern.Proxy.Source"
+            endpointName="source" kind="Simple"/>
+        <Communication destinationClassName="cn.cfanr.pattern.Proxy.Source"/>
+    </Class>
+    <Note x="513" y="2">public interface Sourceable {&#xd;
+	public void method();&#xd;
+}&#xd;
+&#xd;
+public class Source implements Sourceable{&#xd;
+	@Override&#xd;
+	public void method() {&#xd;
+		System.out.println("this is an original method");&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+public class Proxy implements Sourceable {&#xd;
+	private Source source;&#xd;
+	public Proxy(){&#xd;
+		super();&#xd;
+		this.source=new Source();&#xd;
+	}&#xd;
+	@Override&#xd;
+	public void method() {&#xd;
+		before();&#xd;
+		source.method();&#xd;
+		after();&#xd;
+	}&#xd;
+	private void before() {&#xd;
+		System.out.println("before proxy...");&#xd;
+	}&#xd;
+	private void after() {&#xd;
+		System.out.println("after proxy...");&#xd;
+	}&#xd;
+}&#xd;
+</Note>
+</ClassDiagram>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.Prototype.PrototypeCopy" x="182" y="247">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.stu.pattern.Prototype.SerializableObject"
+            endpointName="obj" kind="Simple"/>
+    </Class>
+    <Class name="cn.stu.pattern.Prototype.SerializableObject" x="187" y="73">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.stu.pattern.Prototype.Prototype" x="18" y="108">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Note x="368" y="148">public class Prototype implements Cloneable {&#xd;
+	public Object clone() throws CloneNotSupportedException {&#xd;
+		Prototype proto = (Prototype) super.clone(); //此处调用的是Object的方法&#xd;
+		return proto;&#xd;
+	}&#xd;
+}</Note>
+</ClassDiagram>

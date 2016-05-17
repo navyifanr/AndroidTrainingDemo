@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.cfanr.pattern.ResponsibilityChain.Handler" x="471" y="28">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.ResponsibilityChain.AbstractHandler"
+        x="620" y="166">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.cfanr.pattern.ResponsibilityChain.Handler"
+            endpointName="handler" kind="Simple"/>
+    </Class>
+    <Class name="cn.cfanr.pattern.ResponsibilityChain.MyHandler" x="381" y="150">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.cfanr.pattern.ResponsibilityChain.Handler"/>
+        <Extension destinationClassName="cn.cfanr.pattern.ResponsibilityChain.AbstractHandler"/>
+        <Communication destinationClassName="cn.cfanr.pattern.ResponsibilityChain.Handler"/>
+        <Communication destinationClassName="cn.cfanr.pattern.ResponsibilityChain.AbstractHandler"/>
+    </Class>
+    <Note x="655" y="30">public interface Handler {&#xd;
+	public void operator();&#xd;
+}</Note>
+    <Note x="28" y="98">public class MyHandler extends AbstractHandler&#xd;
+	implements Handler {&#xd;
+&#xd;
+	private String name;&#xd;
+	&#xd;
+	public MyHandler(String name){&#xd;
+		this.name=name;&#xd;
+	}&#xd;
+	&#xd;
+	@Override&#xd;
+	public void operator() {&#xd;
+		System.out.println(name+"deal...");&#xd;
+		if(getHandler()!=null){&#xd;
+			getHandler().operator();&#xd;
+		}&#xd;
+	}&#xd;
+&#xd;
+}</Note>
+    <Note x="511" y="229">public abstract class AbstractHandler {&#xd;
+	private Handler handler;&#xd;
+	&#xd;
+	public Handler getHandler(){&#xd;
+		return handler;&#xd;
+	}&#xd;
+	&#xd;
+	public void setHandler(Handler handler){&#xd;
+		this.handler=handler;&#xd;
+	}&#xd;
+}&#xd;
+</Note>
+</ClassDiagram>

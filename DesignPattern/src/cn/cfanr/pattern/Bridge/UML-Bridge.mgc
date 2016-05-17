@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="cn.stu.pattern.Bridge.SourceSub1" x="194" y="182">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Bridge.Sourceable"/>
+    </Class>
+    <Class name="cn.stu.pattern.Bridge.SourceSub2" x="341" y="175">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Bridge.Sourceable"/>
+    </Class>
+    <Class name="cn.stu.pattern.Bridge.MyBridge" x="11" y="274">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="cn.stu.pattern.Bridge.Bridge"/>
+        <Communication destinationClassName="cn.stu.pattern.Bridge.Sourceable"/>
+    </Class>
+    <Class name="cn.stu.pattern.Bridge.Bridge" x="50" y="166">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="cn.stu.pattern.Bridge.Sourceable"
+            endpointName="source" kind="Simple"/>
+        <Communication destinationClassName="cn.stu.pattern.Bridge.Sourceable"/>
+    </Class>
+    <Class name="cn.stu.pattern.Bridge.Sourceable" x="184" y="35">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Note x="484" y="6">public interface Sourceable {&#xd;
+	public void method();&#xd;
+}&#xd;
+public abstract class Bridge {&#xd;
+	private Sourceable source;&#xd;
+	public void method(){&#xd;
+		source.method();&#xd;
+	}&#xd;
+	public Sourceable getSource(){&#xd;
+		return source;&#xd;
+	}&#xd;
+	public void setSource(Sourceable source){&#xd;
+		this.source=source;&#xd;
+	}&#xd;
+}&#xd;
+public class MyBridge extends Bridge {&#xd;
+	public void method(){&#xd;
+		getSource().method();&#xd;
+	}&#xd;
+}&#xd;
+Bridge bridge=new MyBridge();		&#xd;
+&#xd;
+//调用第一个对象&#xd;
+Sourceable source1=new SourceSub1();&#xd;
+bridge.setSource(source1);&#xd;
+bridge.method();	&#xd;
+&#xd;
+//调用第二个对象&#xd;
+Sourceable source2=new SourceSub2();&#xd;
+bridge.setSource(source2);&#xd;
+bridge.method();</Note>
+    <Note x="119" y="291">public class SourceSub1 implements Sourceable {&#xd;
+&#xd;
+	@Override&#xd;
+	public void method() {&#xd;
+		System.out.println("this is the first sub");&#xd;
+	}&#xd;
+&#xd;
+}</Note>
+</ClassDiagram>
