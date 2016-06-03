@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F7F6F6"
+    >
+
+    <TextView
+        android:id="@+id/ptr_header_state_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ptr_header_margin_top"
+        android:text="释放立即刷新"
+        android:textSize="16sp"
+        />
+
+    <ImageView
+        android:id="@+id/ptr_header_progress_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ptr_header_margin_top"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/ptr_header_refresh_arrows"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ptr_header_margin_top"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@id/ptr_header_state_text"
+        android:src="@drawable/ptr_rotate_arrow"
+        />
+
+    <ImageView
+        android:id="@+id/ptr_header_ptr_img"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/ptr_header_margin_top"
+        android:paddingBottom="@dimen/ptr_header_margin_bottom"
+        android:layout_below="@id/ptr_header_refresh_arrows"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ptr_header_img"
+        />
+
+</RelativeLayout>
