@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a6000000"
+    >
+
+    <ImageView
+        android:id="@+id/iv_home_act_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/icon_find_act_enter_guide1"/>
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/iv_home_act_enter"
+        android:layout_below="@id/iv_home_act_enter"
+        android:src="@mipmap/icon_find_act_enter_guide2"
+        android:layout_marginRight="-20dp"
+        android:layout_marginTop="-20dp"
+        />
+
+    <Button
+        android:id="@+id/btn_home_act_enter_know"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:text="知道了"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_circle_bg_gray"
+        />
+
+</RelativeLayout>

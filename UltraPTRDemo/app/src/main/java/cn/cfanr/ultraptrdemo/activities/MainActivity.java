@@ -1,4 +1,4 @@
-package cn.cfanr.ultraptrdemo;
+package cn.cfanr.ultraptrdemo.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.cfanr.ultraptrdemo.R;
 import cn.cfanr.ultraptrdemo.view.ptr.PtrListView;
 import cn.cfanr.ultraptrdemo.view.ptr.PtrLoadMoreListener;
 
