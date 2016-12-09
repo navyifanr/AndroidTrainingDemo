@@ -1,20 +1,20 @@
 ##  Android用建造者模式实现一个新功能引导页的功能
 
-------------------------------
 
 最近每次版本更新都会在UI变动或加了新功能的地方加一个引导蒙层页面（新功能标记、文案和一个“知道了”的按钮），有时候一个版本会加三四个页面，原来的做法是：
-1.在每个Activity的布局文件外层添加一个FrameLayout(这方法好蠢，又要嵌套一层布局)；
-2.再将需要显示的引导页布局加在后面(或用include的方式);
-3.写两个方法，获取和设置是否显示了该引导页的判断，存储到SharedPreferences;
-4.最后在对应Activity页面添加对应控制引导页显隐的逻辑
-……
+
+- 1.在每个Activity的布局文件外层添加一个FrameLayout(这方法好蠢，又要嵌套一层布局)；
+- 2.再将需要显示的引导页布局加在后面(或用include的方式);
+- 3.写两个方法，获取和设置是否显示了该引导页的判断，存储到SharedPreferences;
+- 4.最后在对应Activity页面添加对应控制引导页显隐的逻辑
+
 每添加一个页面就要重复上面四个步骤，而且之后版本迭代需要去掉这些冗余代码时也比较麻烦，改动的地方比较多，不利于管理。
 这方法太笨了，不能纯粹只为了完成功能呀，于是想了一个简单有效的方法。
 
 ![](https://raw.githubusercontent.com/navyifanr/AndroidTrainingDemo/master/GuidePageManage/image.png)
 
 首先解决避免改动原Activity布局的问题，只要通过findViewById(android.R.id.content)获取Activity根布局下的FrameLayout, 再将需要添加的引导页布局addView(view)进入就可以了
-```
+```java
 FrameLayout rootLayout = (FrameLayout) activity.findViewById(android.R.id.content);
 View layoutView = View.inflate(activity, layoutId, null);
 rootLayout.add(layoutView);
@@ -26,7 +26,7 @@ rootLayout.add(layoutView);
 最后将上面所说的方法封装在一个类GuidePage，使用时传入activity, layoutId, knowViewId(知道了按钮)和pageTag即可，写好这个工具类后，之后再需要增加引导页时只需要：
 1.写一个引导页面的布局；
 2.在对应的Activity页面调用这个工具方法即可；
-```
+```java
 private void apply(@LayoutRes int layoutId, @IdRes int knowViewId, String pageTag) {
     FrameLayout rootLayout = (FrameLayout) activity.findViewById(android.R.id.content);
     View layoutView = View.inflate(activity, layoutId, null);
@@ -58,7 +58,7 @@ if(!SpUtil.hasShowedGuidePage()){
 -------------------------------分割线---------------------------
 
 期待这样调用就可以了
-```
+```java
 new GuidePage.Builder(this)
       .setLayoutId(R.layout.view_home_guide_page)
       .setKnowViewId(R.id.home_guide_page_know)
@@ -71,7 +71,7 @@ new GuidePage.Builder(this)
 建一个GuidePage的类，里面有个Builder的内部类，通过内部类设置activity, layoutId, knowViewId等参数。存储引导页是否已展示的方法好像可以直接写在GuidePage，就不用在外部判断了，不过这样要执行一些无用的代码，不适合；还有pageTag好像可以直接用activity.getClass().getSimpleName(), 也不用传这个值了，不过如果同一个Activity有两个引导页(如不同Fragment需要不同引导页)就不适用了，还是只能通过参数传入好点
 
 好吧，这么简单，就不多说了，直接上代码:
-```
+```java
 public class GuidePage {
     private int layoutId;
     private int knowViewId;
@@ -171,7 +171,7 @@ public class GuidePage {
 }
 ```
 下面是判断页面是否显示引导页的类，或者用来定义一些静态的pageTag也行
-```
+```java
 public class GuidePageManager {
 
     private GuidePageManager(){
@@ -200,7 +200,7 @@ public class GuidePageManager {
 }
 ```
 最后，使用方法
-```
+```java
 if(GuidePageManager.hasNotShowed(this, MainActivity.class.getSimpleName())){
     new GuidePage.Builder(this)
             .setLayoutId(R.layout.view_home_guide_page)
