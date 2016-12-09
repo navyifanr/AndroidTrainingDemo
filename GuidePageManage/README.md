@@ -11,6 +11,8 @@
 每添加一个页面就要重复上面四个步骤，而且之后版本迭代需要去掉这些冗余代码时也比较麻烦，改动的地方比较多，不利于管理。
 这方法太笨了，不能纯粹只为了完成功能呀，于是想了一个简单有效的方法。
 
+![](https://raw.githubusercontent.com/navyifanr/AndroidTrainingDemo/master/GuidePageManage/image.png)
+
 首先解决避免改动原Activity布局的问题，只要通过findViewById(android.R.id.content)获取Activity根布局下的FrameLayout, 再将需要添加的引导页布局addView(view)进入就可以了
 ```
 FrameLayout rootLayout = (FrameLayout) activity.findViewById(android.R.id.content);
