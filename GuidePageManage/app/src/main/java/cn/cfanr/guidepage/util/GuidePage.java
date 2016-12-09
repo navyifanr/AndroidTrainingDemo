@@ -101,8 +101,6 @@ public class GuidePage {
     }
 
     public void apply(){
-        if(GuidePageManager.hasNotShowed(activity, pageTag))
-            return;
         rootLayout.addView(layoutView);
     }
 

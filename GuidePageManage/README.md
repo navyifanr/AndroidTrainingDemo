@@ -157,8 +157,6 @@ public class GuidePage {
     }
 
     public void apply(){
-        if(GuidePageManager.hasNotShowed(activity, pageTag))
-            return;
         rootLayout.addView(layoutView);
     }
 
@@ -210,9 +208,7 @@ if(GuidePageManager.hasNotShowed(this, MainActivity.class.getSimpleName())){
             .apply();
 }
 ```
-完了。
+
 Github代码: [GuidePageManage](https://github.com/navyifanr/AndroidTrainingDemo/tree/master/GuidePageManage)
 
-
----EOF---
-
+完了。
