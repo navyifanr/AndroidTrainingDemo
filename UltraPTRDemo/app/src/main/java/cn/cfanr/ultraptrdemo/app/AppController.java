@@ -8,8 +8,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
-import cn.cfanr.izhihudaily.utils.LruBitmapCache;
-
+import cn.cfanr.ultraptrdemo.utils.LruBitmapCache;
 
 /**
  * @author xifan

@@ -3,6 +3,30 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- =============常用字体=================== -->
+    <!-- 30像素 -->
+    <dimen name="font_size_normal">15sp</dimen>
+    <!-- 36像素 -->
+    <dimen name="font_size_big_x">18sp</dimen>
+    <!-- 32像素 -->
+    <dimen name="font_size_big">16sp</dimen>
+    <!-- 26像素 -->
+    <dimen name="font_size_small">13sp</dimen>
+    <!-- 20像素 -->
+    <dimen name="font_size_mini">11sp</dimen>
+
+    <!-- 控件间的间距 -->
+    <dimen name="spacing_huge">30dp</dimen>
+    <dimen name="spacing_large">18dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_small">12dp</dimen>
+    <dimen name="spacing_tiny">6dp</dimen>
+
+    <!-- 左右的margin-->
+    <dimen name="margin_left_right_small">10dp</dimen>
+    <dimen name="margin_left_right_normal">12dp</dimen>
+    <dimen name="margin_left_right_large">16dp</dimen>
+
     <!--ptr 下拉刷新相关-->
     <dimen name="ptr_header_margin_top">12dp</dimen>
     <dimen name="ptr_header_margin_bottom">12dp</dimen>

@@ -3,13 +3,8 @@
     android:layout_height="match_parent"
     >
 
-    <!--<cn.cfanr.ultraptrdemo.view.ptr.PtrListView-->
-        <!--android:id="@+id/ptr_list_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"/>-->
-
     <in.srain.cube.views.ptr.PtrClassicFrameLayout
-        android:id="@+id/ptr_frame_layout"
+        android:id="@+id/ptr_classic_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,7 +15,7 @@
             >
 
             <ListView
-                android:id="@+id/ptr_list_view"
+                android:id="@+id/list_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="@null"

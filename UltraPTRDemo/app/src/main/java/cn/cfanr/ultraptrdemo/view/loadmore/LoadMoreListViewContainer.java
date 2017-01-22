@@ -36,4 +36,5 @@ public class LoadMoreListViewContainer extends LoadMoreContainerBase {
         mListView = (ListView) getChildAt(0);
         return mListView;
     }
+
 }

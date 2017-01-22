@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import cn.cfanr.ultraptrdemo.R;
@@ -25,7 +25,9 @@ import in.srain.cube.views.ptr.PtrHandler;
 public class PtrClassicListView extends FrameLayout {
     private PtrClassicFrameLayout mPtrFrame;
     private ListView mListView;
+    private LoadMoreListViewContainer loadMoreListViewContainer;
 
+    private Mode mMode=Mode.REFRESH;
     private PtrLoadMoreListener ptrLoadMoreListener;
 
     public void setPtrLoadMoreListener(PtrLoadMoreListener ptrLoadMoreListener){
@@ -48,40 +50,11 @@ public class PtrClassicListView extends FrameLayout {
     }
 
     private void initViews(){
-        View view= LayoutInflater.from(getContext()).inflate(R.layout.ptr_list_view, null);  //not 'this'
+        View view= LayoutInflater.from(getContext()).inflate(R.layout.ptr_classic_list_view, null);  //not 'this'
         mListView= (ListView) view.findViewById(R.id.ptr_list_view_base);
 
         mPtrFrame= (PtrClassicFrameLayout) view.findViewById(R.id.ptr_frame_list_view);
-        final LoadMoreListViewContainer loadMoreListViewContainer = (LoadMoreListViewContainer) view.findViewById(R.id.ptr_list_view_load_more_container);
-        loadMoreListViewContainer.useDefaultFooter();
-        loadMoreListViewContainer.setLoadMoreHandler(new LoadMoreHandler() {
-            @Override
-            public void onLoadMore(LoadMoreContainer loadMoreContainer) {
-                if(ptrLoadMoreListener!=null) {
-                    loadMoreContainer.loadMoreFinish(true, true);
-                    ptrLoadMoreListener.onLoadMore();
-                }
-            }
-        });
-
-//        ptrHeader=new PtrCustomHeader(getContext());
-//        ptrHeader.setLayoutParams(new PtrFrameLayout.LayoutParams(-1, -2));
-//        ptrHeader.onUIReset(mPtrFrame);
-
         mPtrFrame.setLoadingMinTime(500);
-        mPtrFrame.setDurationToCloseHeader(500);
-//        mPtrFrame.setHeaderView(ptrHeader);
-//        mPtrFrame.addPtrUIHandler(ptrHeader);
-
-
-        // frame.setPullToRefresh(true);
-//        mPtrFrame.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                mPtrFrame.autoRefresh(true);
-//            }
-//        }, 100);
-
         mPtrFrame.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
@@ -96,20 +69,61 @@ public class PtrClassicListView extends FrameLayout {
                 }
             }
         });
+
+        loadMoreListViewContainer = (LoadMoreListViewContainer) view.findViewById(R.id.ptr_list_view_load_more_container);
+        loadMoreListViewContainer.useDefaultFooter();
+        loadMoreListViewContainer.setLoadMoreHandler(new LoadMoreHandler() {
+            @Override
+            public void onLoadMore(LoadMoreContainer loadMoreContainer) {
+                if(ptrLoadMoreListener!=null) {
+                    ptrLoadMoreListener.onLoadMore();
+                }
+            }
+        });
+
         this.addView(view);
     }
 
-    public void setRefreshComplete(){
+    public void refreshComplete(){
         mPtrFrame.refreshComplete();
     }
 
-    public void autoRefresh(){
-        mPtrFrame.autoRefresh(true);
+    public void loadMoreFinish(boolean emptyResult, boolean hasMore){
+        loadMoreListViewContainer.loadMoreFinish(emptyResult, hasMore);
     }
 
-    public void setAdapter(ListAdapter adapter){
+    public void autoRefresh(){
+        mPtrFrame.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPtrFrame.autoRefresh(true);
+            }
+        }, 150);
+    }
+
+    public void setAdapter(BaseAdapter adapter){
         if(adapter!=null){
             mListView.setAdapter(adapter);
         }
+    }
+
+    public void setMode(Mode mode){
+        if(mode== Mode.REFRESH){
+            loadMoreListViewContainer.removeDefalutFooter();
+        }else if(mode==Mode.LOAD_MORE){
+
+        }else if(mode==Mode.BOTH){
+
+        }
+    }
+
+    public Mode getMode(){
+        return mMode;
+    }
+
+    public static enum Mode {
+        REFRESH,
+        LOAD_MORE,
+        BOTH
     }
 }

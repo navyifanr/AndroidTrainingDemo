@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cn.cfanr.izhihudaily.utils.ImageUtils;
+import cn.cfanr.ultraptrdemo.utils.ImageUtils;
 
 /**
  * @author xifan

@@ -56,6 +56,12 @@ public abstract class LoadMoreContainerBase extends LinearLayout implements Load
         setLoadMoreUIHandler(footerView);
     }
 
+    public void removeDefalutFooter(){
+        if(mFooterView!=null) {
+            removeFooterView(mFooterView);
+        }
+    }
+
     private void init() {
 
         if (mFooterView != null) {

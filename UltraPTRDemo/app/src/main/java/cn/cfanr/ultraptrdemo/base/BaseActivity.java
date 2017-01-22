@@ -3,7 +3,6 @@ package cn.cfanr.ultraptrdemo.base;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -26,13 +25,9 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setBaseContentView(getLayoutResId());
-        initView();
+        setContentView(getLayoutResId());
+        initViews();
         initEvent();
-    }
-
-    public void setBaseContentView(@LayoutRes int layoutResId){
-        setContentView(layoutResId);
     }
 
     public void setDoubleClickBarToTop(Toolbar toolbar, final RecyclerView recyclerView){
@@ -68,7 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     protected abstract int getLayoutResId();
 
-    public abstract void initView();
+    public abstract void initViews();
 
     public abstract void initEvent();
 

@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.android.volley.toolbox.ImageLoader;
 
-import cn.cfanr.izhihudaily.app.AppController;
+import cn.cfanr.ultraptrdemo.app.AppController;
 
 /**
  * @author xifan
@@ -16,7 +16,7 @@ public class ImageUtils {
 
     public static void loadImage(ImageView imageView, String url, @DrawableRes int defaultImgId, @DrawableRes int failedImgId){
         ImageLoader.ImageListener listener = ImageLoader.getImageListener(imageView, defaultImgId, failedImgId);
-        ImageLoader imageLoader=AppController.getInstance().getImageLoader();
+        ImageLoader imageLoader= AppController.getInstance().getImageLoader();
         imageLoader.get(url, listener);
     }
 

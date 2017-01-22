@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/ptr_header_margin_top"
+        android:src="@drawable/ptr_header_loading1"
         android:visibility="gone"
         />
 

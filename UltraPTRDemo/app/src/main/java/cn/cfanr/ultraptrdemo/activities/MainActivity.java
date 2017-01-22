@@ -1,56 +1,112 @@
 package cn.cfanr.ultraptrdemo.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.cfanr.ultraptrdemo.R;
-import cn.cfanr.ultraptrdemo.view.ptr.PtrListView;
-import cn.cfanr.ultraptrdemo.view.ptr.PtrLoadMoreListener;
+import cn.cfanr.ultraptrdemo.adapter.CommonAdapter;
+import cn.cfanr.ultraptrdemo.adapter.viewholder.CommonViewHolder;
+import cn.cfanr.ultraptrdemo.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
-    List<String> data = new ArrayList<>();
-    ArrayAdapter mAdapter;
-    PtrListView ptrListView;
+public class MainActivity extends BaseActivity {
+    private GridView mClassicGridView;
+    private GridView mCustomGridView;
+
+    private String[] classicTitles ={
+            "包含ListView",
+            "包含ScrollView",
+            "包含GridView",
+            "包含WebView",
+            "释放刷新",
+            "下拉刷新",
+            "自动刷新"
+    };
+
+    private String[] customTitles={
+            "包含ListView",
+            "包含ScrollView",
+            "包含GridView",
+            "包含WebView",
+            "释放刷新",
+            "下拉刷新",
+            "自动刷新"
+    };
+
+    private List<String> classicTitleList=new ArrayList<>();
+    private List<String> customTitleList =new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
     }
 
-    private void initView() {
-        ptrListView= (PtrListView) findViewById(R.id.ptr_list_view);
-        ptrListView.setAdapter(mAdapter=new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, data));
-        ptrListView.setPtrLoadMoreListener(new PtrLoadMoreListener() {
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initViews() {
+        mClassicGridView =$(R.id.grid_view_classic);
+        mCustomGridView=$(R.id.grid_view_custom);
+
+        setData();
+        mClassicGridView.setAdapter(new CommonAdapter<String>(getActivity(), classicTitleList, android.R.layout.simple_list_item_1) {
+
             @Override
-            public void onRefresh() {
-                updateData();
+            public void convert(CommonViewHolder holder, String str, int position) {
+                TextView textView=holder.getView(android.R.id.text1);
+                textView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                textView.setTextColor(getResources().getColor(R.color.white));
+                textView.setText(str);
             }
-
+        });
+        mCustomGridView.setAdapter(new CommonAdapter<String>(getActivity(), customTitleList, android.R.layout.simple_list_item_1) {
             @Override
-            public void onLoadMore() {
-
+            public void convert(CommonViewHolder holder, String str, int position) {
+                TextView textView=holder.getView(android.R.id.text1);
+                textView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                textView.setTextColor(getResources().getColor(R.color.white));
+                textView.setText(str);
             }
         });
     }
 
-    private void updateData(){
-//        data.clear();
-        new Handler().postDelayed(new Runnable() {
+    @Override
+    public void initEvent() {
+        mClassicGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void run() {
-                for(int index=0;index<6;index++){
-                    data.add("测试数据  "+index);
-                }
-                mAdapter.notifyDataSetChanged();
-                ptrListView.setRefreshComplete();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getApplicationContext(), ContentActivity.class);
+                intent.putExtra("title", customTitleList.get(position));
+                startActivity(intent);
             }
-        }, 1000);
+        });
+
+        mCustomGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getApplicationContext(), ContentActivity.class);
+                intent.putExtra("title", customTitleList.get(position));
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setData(){
+        for(String title: classicTitles){
+            classicTitleList.add(title);
+        }
+        for(String title: customTitles){
+            customTitleList.add(title);
+        }
     }
 
 }

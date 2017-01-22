@@ -20,13 +20,14 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 public class ClassicWithListView extends BaseFragment {
-    private List<String> data = new ArrayList<>();
-    private ArrayAdapter mAdapter;
     private ListView ptrListView;
     private PtrClassicFrameLayout ptrFrame;
     private LoadMoreListViewContainer loadMoreContainer;
 
+    private List<String> data = new ArrayList<>();
+    private ArrayAdapter mAdapter;
     private int pageNo=1;
+
     public ClassicWithListView() {
         // Required empty public constructor
     }
@@ -38,13 +39,13 @@ public class ClassicWithListView extends BaseFragment {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_custom_with_list_view;
+        return R.layout.fragment_classic_with_list_view;
     }
 
     @Override
     public void initViews(View layoutView) {
-        ptrListView= $(layoutView, R.id.ptr_list_view);
-        ptrFrame=$(layoutView, R.id.ptr_frame_layout);
+        ptrListView= $(layoutView, R.id.list_view);
+        ptrFrame=$(layoutView, R.id.ptr_classic_frame_layout);
         ptrFrame.setLoadingMinTime(1000);
         ptrFrame.setPtrHandler(new PtrHandler() {
             @Override

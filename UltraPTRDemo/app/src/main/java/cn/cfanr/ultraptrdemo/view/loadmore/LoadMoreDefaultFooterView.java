@@ -5,7 +5,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import in.srain.cube.R;
+
+import cn.cfanr.ultraptrdemo.R;
 
 public class LoadMoreDefaultFooterView extends RelativeLayout implements LoadMoreUIHandler {
 

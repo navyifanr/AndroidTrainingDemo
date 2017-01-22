@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
-import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
 /**
  * @author huqiu.lhq
