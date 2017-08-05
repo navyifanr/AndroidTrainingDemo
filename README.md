@@ -6,3 +6,5 @@
 
 3.GuidePageManage: [Android用建造者模式实现一个新功能引导页](http://cfanr.cn/2016/12/07/use-Builder-pattern-realize-a-new-function-guide-page-manager/)
 
+4.JNISample: [Android NDK开发：JNI实战篇](https://github.com/navyifanr/AndroidTrainingDemo/tree/master/JNISample)
+
