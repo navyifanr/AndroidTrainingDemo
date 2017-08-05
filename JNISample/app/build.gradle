@@ -12,7 +12,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ""
+                cppFlags "" //如果使用 C++11 标准，则改为 "-std=c++11"
+                // 生成.so库的目标平台，使用的是genymotion模拟器，需要加上 x86
+                abiFilters "armeabi-v7a", "armeabi", "x86"
             }
         }
     }
@@ -24,7 +26,7 @@ android {
     }
     externalNativeBuild {
         cmake {
-            path "CMakeLists.txt"
+            path "CMakeLists.txt"  //配置 CMake 文件的路径
         }
     }
 }
